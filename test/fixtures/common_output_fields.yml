@@ -1,0 +1,111 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  merchant_id: 1
+  contract_id: MyString
+  merchant_name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  phone_no: MyString
+  funded_amount: 
+  fico: 1
+  sc3score: 1
+  nopo_flag: false
+  annual_sales: 
+  sic_code: MyString
+  restaurant_category: MyString
+  website_address: MyString
+  hours: MyString
+  parking: MyString
+  review_count: 1
+  average_rating: 
+  menu_price: MyString
+  accept_credit_card: false
+  dress_code: MyString
+  reservation: false
+  take_out: false
+  delivery: false
+  caters: false
+  has_tv: false
+  noise_level: MyString
+  alcohol: MyString
+  outdoor_sitting: false
+  waiter_service: false
+  good_for_groups: false
+  good_for_kids: false
+  rating_median: 
+  rating_mean: 
+  days_since_last_review: 1
+  last3_over_mean: 
+  median_review_frequency: 
+  range_review_dates: 1
+  rating_variance: 
+  rating_iqr: 1
+  review_frequency_iqr: 1
+  rating_mad: 1
+  review_frequency_mad: 1
+  rating_mean_30: 
+  rating_mean_60: 
+  rating_mean_90: 
+  rating_mean_120: 
+  rating_mean_150: 
+  rating_mean_180: 
+  rating_mean_210: 
+  rating_mean_210_plus: 
+
+two:
+  merchant_id: 1
+  contract_id: MyString
+  merchant_name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  phone_no: MyString
+  funded_amount: 
+  fico: 1
+  sc3score: 1
+  nopo_flag: false
+  annual_sales: 
+  sic_code: MyString
+  restaurant_category: MyString
+  website_address: MyString
+  hours: MyString
+  parking: MyString
+  review_count: 1
+  average_rating: 
+  menu_price: MyString
+  accept_credit_card: false
+  dress_code: MyString
+  reservation: false
+  take_out: false
+  delivery: false
+  caters: false
+  has_tv: false
+  noise_level: MyString
+  alcohol: MyString
+  outdoor_sitting: false
+  waiter_service: false
+  good_for_groups: false
+  good_for_kids: false
+  rating_median: 
+  rating_mean: 
+  days_since_last_review: 1
+  last3_over_mean: 
+  median_review_frequency: 
+  range_review_dates: 1
+  rating_variance: 
+  rating_iqr: 1
+  review_frequency_iqr: 1
+  rating_mad: 1
+  review_frequency_mad: 1
+  rating_mean_30: 
+  rating_mean_60: 
+  rating_mean_90: 
+  rating_mean_120: 
+  rating_mean_150: 
+  rating_mean_180: 
+  rating_mean_210: 
+  rating_mean_210_plus: 

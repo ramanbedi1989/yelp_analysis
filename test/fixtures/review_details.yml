@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  reviewer_name: MyString
+  reviewer_city: MyString
+  review_rating: 
+  review_date: 2014-01-31 13:07:42
+  review_description: MyText
+
+two:
+  reviewer_name: MyString
+  reviewer_city: MyString
+  review_rating: 
+  review_date: 2014-01-31 13:07:42
+  review_description: MyText
