@@ -11,9 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131073742) do
+ActiveRecord::Schema.define(version: 20140206173339) do
 
-  create_table "common_output_fields", force: true do |t|
+  create_table "hadoop_statuses", force: true do |t|
+    t.boolean  "started"
+    t.boolean  "db_to_hdfs"
+    t.boolean  "yelp_fetcher"
+    t.boolean  "hdfs_to_db"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inputs", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "last_fetches", force: true do |t|
+    t.datetime "last_fetched_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "outputs", force: true do |t|
     t.integer  "merchant_id"
     t.string   "contract_id"
     t.string   "merchant_name"
@@ -67,23 +89,12 @@ ActiveRecord::Schema.define(version: 20140131073742) do
     t.float    "rating_mean_180"
     t.float    "rating_mean_210"
     t.float    "rating_mean_210_plus"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "inputs", force: true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "review_details", force: true do |t|
-    t.string   "reviewer_name"
-    t.string   "reviewer_city"
-    t.float    "review_rating"
     t.datetime "review_date"
+    t.string   "review_user_name"
+    t.string   "review_city"
     t.text     "review_description"
+    t.float    "review_rating"
+    t.integer  "input_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

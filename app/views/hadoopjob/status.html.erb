@@ -1,0 +1,70 @@
+<h3>Following is the status of Current Hadoop Job: </h3>
+<h5>Running Jobs:</h5>
+<div>
+    <span>DB to HDFS: </span>
+    <div class="loader db_loader"></div>
+</div>
+<div class="progress progress-success progress-striped">
+    <div id="db_to_hdfs" class="bar" style="width: 0%">
+        
+    </div>
+</div>
+<br>
+<div>
+    <span>Fetching Yelp Data: </span>
+    <div class="loader yelp_loader"></div>
+</div>
+<div class="progress progress-success progress-striped">
+    <div id="yelp_fetcher" class="bar" style="width: 0%">
+        
+    </div>
+</div>
+<br>
+<div>
+    <span>HDFS to DB: </span>
+    <div class="loader hdfs_loader"></div>
+</div>
+<div class="progress progress-success progress-striped">
+    <div id="hdfs_to_db" class="bar" style="width: 0%">
+        
+    </div>
+</div>
+<br>
+<form action="/hadoopjob/data_fetched">
+    <button type="submit" id="check-output" class="btn btn-success" disabled>Check Output</button>
+</form>
+<script>
+	$(function(){
+       var interval = 2000;
+       var error_count = 0;
+       var get_status = function(){ 
+           var jqxhr = $.ajax({
+               url: '<%= hadoopjob_status_url %>'
+           });
+           jqxhr.done(function(data){
+                eval(data);
+                var db_to_hdfs_width = $('#db_to_hdfs').css('width');
+                var yelp_fetcher_width = $('#yelp_fetcher').css('width');
+                var hdfs_to_db_width = $('#hdfs_to_db').css('width');
+                var progress_width = $('.progress').css('width');
+                if(db_to_hdfs_width == progress_width &&  yelp_fetcher_width == progress_width && hdfs_to_db_width == progress_width){
+                    console.log("hadoop job complete");
+                }else{
+                setTimeout(function(){
+                    get_status();
+                },interval);
+            }
+            });
+           jqxhr.fail(function(error){
+                alert("Sorry an error occoured, will try again in some time.");
+                error_count++;
+                if(error_count < 5){
+                    setTimeout(function(){
+                        get_status();
+                    },interval);
+                }
+            });
+        }
+        get_status();
+   });
+</script>

@@ -1,0 +1,17 @@
+// Place all the styles related to the hadoopjob controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.center-text{
+	text-align: center;
+}
+.large-cell{
+	width:200px;
+}
+.loader{
+	background-image: url("loader.gif");
+	background-repeat: no-repeat;
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	background-size: cover;
+}

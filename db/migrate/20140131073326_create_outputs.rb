@@ -1,6 +1,6 @@
-class CreateCommonOutputFields < ActiveRecord::Migration
+class CreateOutputs < ActiveRecord::Migration
   def change
-    create_table :common_output_fields do |t|
+    create_table :outputs do |t|
       t.integer :merchant_id
       t.string :contract_id
       t.string :merchant_name
@@ -54,7 +54,13 @@ class CreateCommonOutputFields < ActiveRecord::Migration
       t.float :rating_mean_180
       t.float :rating_mean_210
       t.float :rating_mean_210_plus
-
+      t.datetime :review_date
+      t.string :review_user_name
+      t.string :review_city
+      t.text :review_description
+      t.float :review_rating
+      t.integer :input_id
+      
       t.timestamps
     end
   end

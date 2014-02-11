@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ReviewDetailTest < ActiveSupport::TestCase
+class LastFetchTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

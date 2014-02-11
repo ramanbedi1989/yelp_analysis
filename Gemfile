@@ -2,10 +2,13 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
+gem 'twitter-bootstrap-rails', '2.2.4'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
+gem 'sidekiq', '2.14.1'
+gem 'sinatra', require: false
+gem 'slim', '2.0.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

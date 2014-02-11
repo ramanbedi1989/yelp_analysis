@@ -1,0 +1,34 @@
+<h3>Here is the list of news brought in the last run of Hadoop:</h3>
+
+<% if @output_data.empty? %>
+<div class="row-fluid center-text">
+	No data fetched in the last run.
+</div>
+<% else %>
+<table class="datatable table table-striped">
+	<thead>
+		<tr>
+			<% @output_columns.each do |c| %>
+			<td><%= c %></td>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% @output_data.each do |o| %>
+		<tr>
+			<% @output_columns.each do |c| %>
+			<td>
+			<% if o.try(c).class == String %>
+				<div class="large-cell" title="<%= o.try(c) %>">
+					<%= o.try(c).length > 80 ? "#{o.try(c)[0,80]}..." : o.try(c) %>
+				</div>
+			<% else %>
+				<%= o.try(c) %>
+			<% end %>	
+			</td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>

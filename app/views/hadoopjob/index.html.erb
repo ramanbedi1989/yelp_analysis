@@ -1,0 +1,18 @@
+<h3>Here is the list of Yelp URLs to be processed on Hadoop</h3>
+<table class="datatable table table-striped">
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Url</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @all_inputs.each do |i| %>
+		<tr>
+			<td><%= i.name %></td>
+			<td><%= i.url %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= link_to 'Start Processing' , hadoopjob_status_path, class: 'btn btn-primary' %>

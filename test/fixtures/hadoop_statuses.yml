@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  started: false
+  db_to_hdfs: false
+  yelp_fetcher: false
+  hdfs_to_db: false
+
+two:
+  started: false
+  db_to_hdfs: false
+  yelp_fetcher: false
+  hdfs_to_db: false

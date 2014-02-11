@@ -1,0 +1,27 @@
+<%if @hadoop_status.started %>
+	<% if @hadoop_status.db_to_hdfs %>
+		$("#db_to_hdfs").css("width","100%");
+		$('.db_loader').hide();
+	<% else %>
+		$("#db_to_hdfs").css("width","0%");
+		$('.db_loader').show();
+	<% end %>
+	<% if @hadoop_status.yelp_fetcher %>
+		$("#yelp_fetcher").css("width","100%");
+		$('.yelp_loader').hide();
+	<% else %>
+		$("#yelp_fetcher").css("width","0%");
+		$('.yelp_loader').show();
+	<% end %>
+	<% if @hadoop_status.hdfs_to_db %>
+		$("#hdfs_to_db").css("width","100%");
+		$('.hdfs_loader').hide();
+	<% else %>
+		$("#hdfs_to_db").css("width","0%");
+		$('.hdfs_loader').show();
+	<% end %>
+<% end %>
+	<% if @hadoop_status.db_to_hdfs && @hadoop_status.yelp_fetcher && @hadoop_status.hdfs_to_db && @hadoop_status.started %>
+		<% mark_complete_hadoop_job(@hadoop_status) %>
+		$("#check-output").prop("disabled",false);
+	<% end %>
