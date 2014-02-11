@@ -14,8 +14,8 @@ namespace :hadoop do
 
 	desc "Import data from DB to HDFS"
 	task db_to_hdfs: :environment do
-		puts `hadoop dfs -rmr /yelpanalysis/inputs`
-    	puts `sqoop import --connect jdbc:mysql://localhost/db_yelp_analysis_dev --username root --password root --table inputs --split-by id --target-dir /yelpanalysis/inputs`
+		puts `hadoop dfs -rmr #{APP_CONFIG["sqoop_import_dir_hdfs"]}`
+    	puts `sqoop import --connect #{APP_CONFIG["db_name"]} --username root --password root --table inputs --split-by id --target-dir #{APP_CONFIG["sqoop_import_dir_hdfs"]}`
 		hs = HadoopStatus.first
 		hs.db_to_hdfs = true
 		hs.save
@@ -23,9 +23,9 @@ namespace :hadoop do
 
 	desc "Process yelp data on Hadoop"
 	task yelp_fetcher: :environment do
-		Dir.chdir("/home/raman/Documents/YelpAnalysis/YelpAnalysisHadoop/dist") do
-			puts `hadoop dfs -rmr /yelpanalysis/outputs`
-			puts `hadoop jar YelpAnalysisHadoop.jar YelpAnalysisHadoop /yelpanalysis/inputs /yelpanalysis/outputs`
+		Dir.chdir(APP_CONFIG["yelp_analysis_dir"]) do
+			puts `hadoop dfs -rmr #{APP_CONFIG["sqoop_export_dir_hdfs"]}`
+			puts `hadoop jar YelpAnalysisHadoop.jar YelpAnalysisHadoop #{APP_CONFIG["sqoop_import_dir_hdfs"]} #{APP_CONFIG["sqoop_export_dir_hdfs"]}`
 		end
 		hs = HadoopStatus.first
 		hs.yelp_fetcher = true
@@ -34,7 +34,7 @@ namespace :hadoop do
 
 	desc "Export data from HDFS to DB"
 	task hdfs_to_db: :environment do
-    	puts `sqoop export --connect jdbc:mysql://localhost/db_yelp_analysis_dev --username root --password root --table outputs --export-dir /yelpanalysis/outputs --input-enclosed-by "\'" --input-escaped-by "\\\\" --input-fields-terminated-by "," --input-lines-terminated-by " " --enclosed-by "\'" --escaped-by "\\\\" --fields-terminated-by "," --lines-terminated-by " "`
+    	puts `sqoop export --connect #{APP_CONFIG["db_name"]} --username root --password root --table outputs --export-dir #{APP_CONFIG["sqoop_export_dir_hdfs"]} --input-enclosed-by "\'" --input-escaped-by "\\\\" --input-fields-terminated-by "," --input-lines-terminated-by " " --enclosed-by "\'" --escaped-by "\\\\" --fields-terminated-by "," --lines-terminated-by " "`
 		hs = HadoopStatus.first
 		hs.hdfs_to_db = true
 		hs.save

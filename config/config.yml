@@ -1,0 +1,4 @@
+yelp_analysis_dir: /home/ubuntu/yelp_analysis_hadoop/dist
+db_name: jdbc:mysql://172.31.45.64/db_yelp_analysis_dev
+sqoop_import_dir_hdfs: /yelpanalysis/inputs
+sqoop_export_dir_hdfs: /yelpanalysis/outputs

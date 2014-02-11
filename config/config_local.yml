@@ -1,0 +1,4 @@
+yelp_analysis_dir: /home/raman/Documents/YelpAnalysis/YelpAnalysisHadoop/dist
+db_name: jdbc:mysql://localhost/db_yelp_analysis_dev
+sqoop_import_dir_hdfs: /yelpanalysis/inputs
+sqoop_export_dir_hdfs: /yelpanalysis/outputs
